@@ -34,48 +34,11 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 @app.route("/")
 def index():
-	print db
-		
-	if db:
-		# access_token = access_token[0]
-		key = db['access_token_key']
-		secret = db['access_token_secret']
-		print 'este es el access token'
-		print key
-		print 'se acabo el access token'
-		print 'este es el access token secret'
-		print secret
-		print 'se acabo el access token secret'
-		auth = tweepy.OAuthHandler(CONSUMER_TOKEN, CONSUMER_SECRET)
-		auth.set_access_token(key, secret)
-		# # #now you have access!
-		# try: 
-		# 	#get the request tokens
-		# 	redirect_url= auth.get_authorization_url()
-		# 	print(redirect_url)
-		# 	session['request_token'] = auth.request_token
-		# 	print 'se guardo en la sesion'
-		# 	if 'request_token' in session:
-		# 	    user = session['request_token']
-		# 	    print user
-		# except tweepy.TweepError:
-		# 	print 'Error! Failed to get request token'
-
-		api = tweepy.API(auth)
-
-		#store in a db
-		db['api'] = api
-		return flask.redirect(flask.url_for('start'))
-	print 'no hay db guardada'
-	return flask.redirect(flask.url_for('login'))
-
-@app.route('/login') 
-def login():
 	auth = OAuthHandler(CONSUMER_TOKEN, CONSUMER_SECRET, CALLBACK_URL)
 	print 'soy login'
 	try: 
 		#get the request tokens
-		redirect_url= auth.get_authorization_url()
+		redirect_url= auth.get_authorization_url(signin_with_twitter=True)
 		print(redirect_url)
 		session['request_token'] = auth.request_token
 		print 'se guardo en la sesion'
