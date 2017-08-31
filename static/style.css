@@ -1,18 +1,122 @@
+@font-face{
+font-family: 'HelveticaNeueCond';
+src: url('/static/fonts/HelveticaNeue-BlackCond.ttf');
+font-weight: 900;
+}
+@font-face{
+font-family: 'HelveticaNeueCond';
+src: url('/static/fonts/HelveticaNeue-BoldCond.ttf');
+font-weight: 700;
+}
+@font-face{
+font-family: 'HelveticaNeueCond';
+src: url('/static/fonts/HelveticaNeue-MediumCond.ttf');
+font-weight: 400;
+}
+@font-face{
+font-family: 'HelveticaNeue';
+src: url('/static/fonts/HelveticaNeue-Regular.ttf');
+font-weight: 400;
+}
+@font-face{
+font-family: 'HelveticaNeueCond';
+src: url('/static/fonts/HelveticaNeue-ThinCond.ttf');
+font-weight: 300;
+}
+@font-face{
+font-family: 'HelveticaNeueCond';
+src: url('/static/fonts/HelveticaNeue-UltraLigCond.ttf');
+font-weight: 100;
+}
+@font-face{
+font-family: 'HelveticaNeue';
+src: url('/static/fonts/HelveticaNeue-Thin.ttf');
+font-weight: 300;
+}
+
 body{
-	font-family:helvetica; 
+	font-family: 'HelveticaNeueCond';
+	letter-spacing: 1px;
 }
 
-#tweet{
-	font-size:20px;
-	margin:20px;	
-	color: gray;
+.content{
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	text-align: center;
 }
 
-#tweets, h1, #footer{
-	width:40%;
-	margin:0px auto;
+h1{
+	color: #f2eee3;
+	font-family: 'HelveticaNeueCond';
+	font-size: 60px;
+	font-weight: 700;
 }
 
-h1, #footer{
-	text-align:center;
+#recuerdas{
+/*	display: flex;*/
+	background-color: #29b7b4;
+	text-align: center;
+}
+#recuerdas .inter{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+#recuerdas img{
+	width: 300px;
+	margin: 0 auto;
+}
+#recuerdas .scroll{
+	color: #f2eee3;
+	font-weight: 100;
+	align-self: center;
+	justify-content: center;
+	padding-bottom: 20px;
+
+}
+#recuerdas img.arrow{
+	width: 70px;
+}
+#ingresa{
+	background-color: #f2eee3;
+	color: #898174;
+}
+#ingresa img{
+	width: 160px;
+	height: 160px;
+	margin-right: 20px;
+}
+#ingresa h2{
+	font-size: 65px;
+	font-family: 'HelveticaNeueCond';
+	font-weight: 300;
+	letter-spacing: 2px;
+}
+.regular{
+	font-family: 'HelveticaNeue';
+	font-weight: 300;
+}
+.strong-tuit{
+	font-family: 'HelveticaNeueCond';
+	font-weight: 700;
+}
+.little-tuit{
+	font-size: 38px;
+}
+#ingresa .inter{
+	display: flex;
+	align-self: center;
+}
+#ingresa p{
+	font-family: 'HelveticaNeueCond';
+	font-weight: 100;	
+	font-size: 27px;
+	letter-spacing: 2px;
+}
+#ingresa strong{
+	font-weight: 400;
 }

@@ -10,7 +10,7 @@ see my other projects at whichlight.com
 KAWAN!
 '''
 
-from flask import Flask
+from flask import Flask, jsonify, render_template
 from flask import request
 import flask 
 import tweepy
@@ -18,9 +18,10 @@ import got
 import json
 import simplejson as json
 import datetime
+
 from tweepy.auth import OAuthHandler
 app = Flask(__name__)
-
+app.debug = True
 #config
 	
 CONSUMER_TOKEN='p8ZtSYnB74NRAMPmis8qBk71l'
@@ -146,9 +147,28 @@ def start():
 
 	print 'abrio start'
 	#example, print your latest status posts
-	return flask.render_template('tweets.html',
+	return render_template('tweets.html',
 									username = api.me(),
 									data = tuit)
+
+
+@app.route('/interactive/')
+def interactive():
+	return render_template('interactive.html')
+
+
+
+@app.route('/background_process')
+def background_process():
+	try:
+		lang = request.args.get('proglang', 0, type=str)
+		if lang.lower() == 'python':
+			return jsonify(result='You are wise')
+		else:
+			return jsonify(result='Try again.')
+	except Exception as e:
+		return str(e)
+
 
 if __name__ == "__main__":
 	app.run()
