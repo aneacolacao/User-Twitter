@@ -49,18 +49,18 @@ body{
 }
 
 h1{
-	color: #f2eee3;
 	font-family: 'HelveticaNeueCond';
 	font-size: 60px;
 	font-weight: 700;
 }
 
-#recuerdas{
+#recuerdas, #primero{
 /*	display: flex;*/
 	background-color: #29b7b4;
 	text-align: center;
+	color: #f2eee3;
 }
-#recuerdas .inter{
+#recuerdas .inter, #primero .inter{
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -70,7 +70,7 @@ h1{
 	width: 300px;
 	margin: 0 auto;
 }
-#recuerdas .scroll{
+#recuerdas .scroll, #primero .scroll{
 	color: #f2eee3;
 	font-weight: 100;
 	align-self: center;
@@ -78,10 +78,10 @@ h1{
 	padding-bottom: 20px;
 
 }
-#recuerdas img.arrow{
+#recuerdas img.arrow, #primero img.arrow{
 	width: 70px;
 }
-#ingresa{
+#ingresa, #fundacion{
 	background-color: #f2eee3;
 	color: #898174;
 }
@@ -90,7 +90,7 @@ h1{
 	height: 160px;
 	margin-right: 20px;
 }
-#ingresa h2{
+#ingresa h2, #fundacion h2{
 	font-size: 65px;
 	font-family: 'HelveticaNeueCond';
 	font-weight: 300;
@@ -107,20 +107,20 @@ h1{
 .little-tuit{
 	font-size: 38px;
 }
-#ingresa .inter{
+#ingresa .inter, #fundacion .inter{
 	display: flex;
 	align-self: center;
 }
-#ingresa p{
+#ingresa p, #primero p, #fundacion p{
 	font-family: 'HelveticaNeueCond';
 	font-weight: 100;	
 	font-size: 27px;
 	letter-spacing: 2px;
 }
-#ingresa strong{
+#ingresa strong, #primero strong, #fundacion strong{
 	font-weight: 400;
 }
-#ingresa button{
+#ingresa button, #fundacion button{
 	background-color: #dcd5b8;
     border: none;
     padding: 20px 30px;
@@ -130,3 +130,24 @@ h1{
     color: #605951;
     cursor: pointer;
 }
+#primero img{
+	width: 160px;
+	margin: 0 auto;
+}
+#primero h3{
+	font-weight: 100;
+	font-size: 60px;
+	margin: 10px 0;
+}
+#primero h4{
+	font-weight: 100;
+	font-size: 50px;
+	margin: 0 0 10px;
+}
+#fundacion h2{
+	font-weight: 100;
+}
+#fundacion a{
+	margin: 0 10px;
+}
+
