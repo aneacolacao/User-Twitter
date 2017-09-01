@@ -42,17 +42,15 @@
 		<div class="section" id="ingresa">
 			<div class="content">
 				<div class="inter">
-					<img src="{{url_for('static', filename='ciguena.png') }}" alt="¿Recuerdas tu primer tuit?">
+					<img src="{{url_for('static', filename='miprimertuit.png') }}" alt="¿Recuerdas tu primer tuit?">
 					<h2><span class="regular">mi</span><span class="strong-tuit">primer</span>tuit.<span class="little-tuit">com</span></h2>	
 				</div>
 				<p>Te preguntarás cómo algo que tú escribiste,<br/>no puedes recordarlo.</p>
 				<p>Algo tan simple como <strong>tu primer tuit.</strong></p>
 				<p>Pensamos que te interesaría leerlo de nuevo.</p>
-				<a href="#"><button>INGRESA</button></a>
+				<a href="{{url_for('index') }}"><button>INGRESA</button></a>
 			</div>
 		</div>
-		<div class="section">Some section</div>
-		<div class="section">Some section</div>
 	</div>
 	<!-- <div class='container'>
 		<h3>Welcome! Which is the best programming language of them all?</h3>
