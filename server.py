@@ -33,8 +33,12 @@ db = dict() #you can save these values to a database
 # set the secret key.  keep this really secret:
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-@app.route("/")
+@app.route('/')
 def index():
+	return render_template('interactive.html')
+
+@app.route("/login")
+def login():
 	auth = OAuthHandler(CONSUMER_TOKEN, CONSUMER_SECRET, CALLBACK_URL)
 	print 'soy login'
 	try: 
@@ -152,9 +156,6 @@ def start():
 									data = tuit)
 
 
-@app.route('/interactive/')
-def interactive():
-	return render_template('interactive.html')
 
 
 

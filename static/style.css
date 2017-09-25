@@ -67,7 +67,7 @@ h1{
 	justify-content: center;
 }
 #recuerdas img{
-	width: 300px;
+	width: 180px;
 	margin: 0 auto;
 }
 #recuerdas .scroll, #primero .scroll{
@@ -86,8 +86,8 @@ h1{
 	color: #898174;
 }
 #ingresa img{
-	width: 160px;
-	height: 160px;
+	width: 130px;
+	height: 130px;
 	margin-right: 20px;
 }
 #ingresa h2, #fundacion h2{
@@ -110,6 +110,7 @@ h1{
 #ingresa .inter, #fundacion .inter{
 	display: flex;
 	align-self: center;
+	align-items: center;
 }
 #ingresa p, #primero p, #fundacion p{
 	font-family: 'HelveticaNeueCond';
@@ -120,20 +121,57 @@ h1{
 #ingresa strong, #primero strong, #fundacion strong{
 	font-weight: 400;
 }
-#ingresa button, #fundacion button{
+#ingresa button, #fundacion button, #primero button{
 	background-color: #dcd5b8;
     border: none;
-    padding: 20px 30px;
+    padding: 10px 0 8px;
+    border-radius: 10px;
+    width: 160px;
     font-family: 'HelveticaNeueCond';
     font-weight: 300;
-    font-size: 30px;
+    font-size: 20px;
     color: #605951;
     cursor: pointer;
 }
+
+#ingresa button.log-fb{
+	background-color: #3b5998;
+	color: #fff;
+}
+
+#ingresa button.log-tw{
+	background-color: #1da1f2;
+	color: #fff;
+}
+
+#primero a.share-tw button{
+	background-color: #f2eee3;
+	color: #1da1f2;
+	width: 160px;
+	border-radius: 10px;
+	padding: 10px 0 8px;
+}
+#primero a i{
+	color: #1da1f2;
+}
+
+.section a i{
+	margin-right: 5px;
+}
+
 #primero img{
 	width: 160px;
-	margin: 0 auto;
+	margin: 0 auto 2%;
 }
+
+#primero .primertuit{
+	margin-bottom: 2%;
+}
+
+#primero p{
+	margin: 0 auto 2%;
+}
+
 #primero h3{
 	font-weight: 100;
 	font-size: 60px;
@@ -142,7 +180,7 @@ h1{
 #primero h4{
 	font-weight: 100;
 	font-size: 50px;
-	margin: 0 0 10px;
+	margin: 0;
 }
 #fundacion h2{
 	font-weight: 100;

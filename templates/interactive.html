@@ -2,13 +2,24 @@
 <html lang="es">
 <head>
 	<title>Prueba Jquery</title>
+	<link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='favicon.png') }}"/>
+
+	<meta name="twitter:card" content="summary" />
+	<!-- <meta name="twitter:site" content="@flickr" /> -->
+	<meta name="twitter:title" content="Mi primer posteo" />
+	<meta name="twitter:description" content="Yo recordé mi primer posteo, ¿te gustaría recordar el tuyo?" />
+	<meta name="twitter:image" content="{{url_for('static', filename='primertuit.png') }}" />
+
 	<link rel="stylesheet" type="text/css" href="../static/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="../static/style.css" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	
 	<script type="text/javascript" src="../vendors/scrolloverflow.js"></script>
 	<script type="text/javascript" src="../static/jquery.fullPage.js"></script>
+	
+	<script src="https://use.fontawesome.com/7c5f458eb4.js"></script>
 
 	<script type=text/javascript>
 		// $(function() {
@@ -32,7 +43,7 @@
 			<div class="content">
 				<div class="inter">
 					<img src="{{url_for('static', filename='ciguena.png') }}" alt="¿Recuerdas tu primer tuit?">
-					<h1>¿RECUERDAS TU PRIMER TUIT?</h1>
+					<h1>¿RECUERDAS TU PRIMER POSTEO?</h1>
 
 				</div>
 				<div class="scroll">scroll down<br/><img src="{{url_for('static', filename='scroll.png') }}" alt="Scroll down" class="arrow"></div>
@@ -43,23 +54,16 @@
 			<div class="content">
 				<div class="inter">
 					<img src="{{url_for('static', filename='miprimertuit.png') }}" alt="¿Recuerdas tu primer tuit?">
-					<h2><span class="regular">mi</span><span class="strong-tuit">primer</span>tuit.<span class="little-tuit">com</span></h2>	
+					<h2><span class="regular">mi</span><span class="strong-tuit">primer</span>posteo.<span class="little-tuit">com</span></h2>	
 				</div>
 				<p>Te preguntarás cómo algo que tú escribiste,<br/>no puedes recordarlo.</p>
-				<p>Algo tan simple como <strong>tu primer tuit.</strong></p>
+				<p>Algo tan simple como <strong>tu primer posteo.</strong></p>
 				<p>Pensamos que te interesaría leerlo de nuevo.</p>
-				<a href="{{url_for('index') }}"><button>INGRESA</button></a>
+				<a href="{{url_for('login') }}"><button class="log-fb"><i class="fa fa-facebook"></i> FACEBOOK</button></a><br/>
+				<a href="{{url_for('login') }}"><button class="log-tw"><i class="fa fa-twitter"></i>TWITTER</button></a>
 			</div>
 		</div>
 	</div>
-	<!-- <div class='container'>
-		<h3>Welcome! Which is the best programming language of them all?</h3>
-		<form>
-			<input type=text size=5 name=proglang>
-			<a href=# id=process_input><button class='btn btn-default'>Submit</button></a>
-		</form>
-		<p id=result></p>
-	</div> -->
 </body>
 </html>
 	

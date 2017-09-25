@@ -2,13 +2,18 @@
 <html lang="es">
 <head>
 	<title>Prueba Jquery</title>
+	<link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='favicon.png') }}"/>
+
 	<link rel="stylesheet" type="text/css" href="../static/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="../static/style.css" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	
 	<script type="text/javascript" src="../vendors/scrolloverflow.js"></script>
 	<script type="text/javascript" src="../static/jquery.fullPage.js"></script>
+	
+	<script src="https://use.fontawesome.com/7c5f458eb4.js"></script>
 
 	<script type=text/javascript>
 		// $(function() {
@@ -36,8 +41,10 @@
 						<h3>{{ data.tweet_text }}</h3>
 						<h4>@{{ username.screen_name }}</h4>
 					</div>
-					<p>Para ti fue difícil recordar <strong>tu primer tuit.</strong><br/>
+					<p>Para ti fue difícil recordar <strong>tu primer posteo.</strong><br/>
 					Hay pacientes con <strong>Alzheimer</strong> que no recuerdan su nombre.</p>
+					<a class="share-tw" href="https://twitter.com/share?url=http://aneacolacao.pythonanywhere.com/&text={{ data.tweet_text }}"><button><i class="fa fa-twitter"></i> COMPARTE</button></a>
+					 
 				</div>
 				<div class="scroll">scroll down<br/><img src="{{url_for('static', filename='scroll.png') }}" alt="Scroll down" class="arrow"></div>
 				
@@ -46,11 +53,10 @@
 		<div class="section" id="fundacion">
 			<div class="content">
 				<h2>Fundación <strong>Alzheimer</strong> México</h2>
-				<p>Te invitamos a hacer una donación para combatir essta enfermedad. Con tu ayuda,<br/>
+				<p>Te invitamos a hacer una donación para combatir esta enfermedad. Con tu ayuda,<br/>
 				desarrollamos programas de investigación, apoyo y servicios esenciales<br/>
 				que ayudan a nuestros pacientes a mejorar su calidad de vida.</p>
 				<div class="buttons">
-					<a href="#"><button>COMPARTE</button></a>
 					<a href="#"><button>DONA</button></a>
 				</div>
 				<p>Fundación Alzheimer, Alguien con quien contar I.A.P.</p>
