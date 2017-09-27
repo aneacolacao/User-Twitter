@@ -9,10 +9,10 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-	
+
 	<script type="text/javascript" src="../vendors/scrolloverflow.js"></script>
 	<script type="text/javascript" src="../static/jquery.fullPage.js"></script>
-	
+
 	<script src="https://use.fontawesome.com/7c5f458eb4.js"></script>
 
 	<script type=text/javascript>
@@ -29,6 +29,25 @@
 		$(document).ready(function() {
 			$('#fullpage').fullpage();
 		});
+				$(document).ready(function() {
+			$('#fullpage').fullpage();
+		});
+		window.twttr = (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+          if (d.getElementById(id)) return t;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+
+          t._e = [];
+          t.ready = function(f) {
+            t._e.push(f);
+          };
+
+          return t;
+        }(document, "script", "twitter-wjs"));
 	</script>
 </head>
 <body>
@@ -43,11 +62,13 @@
 					</div>
 					<p>Para ti fue difícil recordar <strong>tu primer posteo.</strong><br/>
 					Hay pacientes con <strong>Alzheimer</strong> que no recuerdan su nombre.</p>
-					<a class="share-tw" href="https://twitter.com/share?url=http://aneacolacao.pythonanywhere.com/&text={{ data.tweet_text }}"><button><i class="fa fa-twitter"></i> COMPARTE</button></a>
-					 
+					<!--<a class="share-tw" href="https://twitter.com/share?text={{ data.tweet_text }}&url=http://aneacolacao.pythonanywhere.com/"><button><i class="fa fa-twitter"></i> COMPARTE</button></a>-->
+
+                    <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Faneacolacao.pythonanywhere.com&text={{ data.tweet_text }}" class="share-tw" title="Twittear"><button><i class="fa fa-twitter"></i> COMPARTE</button></a>
+
 				</div>
 				<div class="scroll">scroll down<br/><img src="{{url_for('static', filename='scroll.png') }}" alt="Scroll down" class="arrow"></div>
-				
+
 			</div>
 		</div>
 		<div class="section" id="fundacion">
