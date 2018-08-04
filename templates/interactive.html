@@ -7,11 +7,11 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="Mi primer posteo" />
 	<meta name="twitter:description" content="Yo recordé mi primer posteo, ¿te gustaría recordar el tuyo?" />
-<<<<<<< HEAD
+
 	<meta name="twitter:image" content="http://aneacolacao.pythonanywhere.com/static/summary-card.jpg" />
-=======
-	<meta name="twitter:image" content="http://localhost:5000/static/ciguena.png" />
->>>>>>> 092d6a7283a65044ce77bce1302814086152e604
+
+	<meta name="twitter:image" content="http://aneacolacao.pythonanywhere.com/static/ciguena.png" />
+
 
 	<link rel="stylesheet" type="text/css" href="../static/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="../static/style.css" />
@@ -35,10 +35,17 @@
 		// 	return false;
 		//   });
 		// });
-
+        $(document).ready(function() {
+			$('#fullpage').fullpage();
+		});
 	</script>
+	<script type=text/javascript>
+	    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+	    console.log($SCRIPT_ROOT)
+    </script>
 </head>
 <body>
+    <div id="fb-root"></div>
 	<div id="fullpage">
 		<div class="section" id="recuerdas">
 			<div class="content">
@@ -60,11 +67,154 @@
 				<p>Te preguntarás cómo algo que tú escribiste,<br/>no puedes recordarlo.</p>
 				<p>Algo tan simple como <strong>tu primer posteo.</strong></p>
 				<p>Pensamos que te interesaría leerlo de nuevo.</p>
-				<a href="{{url_for('login') }}"><button class="log-fb"><i class="fa fa-facebook"></i> FACEBOOK</button></a><br/>
+				<a href="#" onclick="fblogin(); return false;"><button class="log-fb"><i class="fa fa-facebook"></i> FACEBOOK</button></a><br/>
 				<a href="{{url_for('login') }}"><button class="log-tw"><i class="fa fa-twitter"></i>TWITTER</button></a>
 			</div>
 		</div>
 	</div>
+
+	<script>
+	  // Additional JS functions here
+	 //  $(function(){
+		//   $('a#facebook_login').bind('click', function () {
+		//       FB.login(function(response) {
+		//           if (response.authResponse) {
+		//               // connected
+		//               console.log('login successful')
+		//               get_user();
+		//           } else {
+		//               // cancelled
+		//               console.log('login failed ')
+		//           }
+		//       });
+		//       return false;
+		//     });
+		// });
+	  var primero = [];
+
+	  //Validate status
+		function statusChangeCallback(response) {
+		    console.log('statusChangeCallback');
+		    console.log(response);
+		    // The response object is returned with a status field that lets the
+		    // app know the current login status of the person.
+		    // Full docs on the response object can be found in the documentation
+		    // for FB.getLoginStatus().
+		    if (response.status === 'connected') {
+		      // Logged into your app and Facebook.
+				console.log('Welcome!  Fetching your information.... ');
+
+			    get_user();
+
+			   //  FB.api('/me', function(response) {
+			   //    console.log(JSON.stringify(response));
+			   //    console.log('Successful login for: ' + response.name);
+			   //    //create object
+				  // primero['name']=response.name;
+				  // console.log('guardé nombre en json');
+
+			   //  });
+			    getfirstpost();
+				token = response.authResponse.accessToken;
+				console.log(token);
+		    } else if (response.status === 'not_authorized') {
+		      // The person is logged into Facebook, but not your app.
+		      console.log('Por favor autoriza nuestra aplicación.');
+
+		    } else{
+		    	console.log('Status desconectado de facebook');
+		    }
+		}
+
+	 //  function get_user() {
+	 //  		console.log('quiero obtener el usuario');
+		//     FB.api('/me', function(response) {
+		//       console.log(response);
+		//       $.getJSON($SCRIPT_ROOT + '/_get_facebook_login',
+		//                 { facebook_id: response.id, name: response.name },
+		//                 function(data) {
+		//                   console.log(data);
+		//                   location.reload(true);
+		//                 });
+		//     });
+		// }
+
+		function get_user() {
+	  		console.log('quiero obtener el usuario');
+		    FB.api('/me', function(response) {
+		      console.log(response);
+		      console.log(JSON.stringify(response));
+		      $.getJSON($SCRIPT_ROOT + '/_get_facebook_login',
+		                { facebook_id: response.id, name: response.name },
+		                function(data) {
+		                  console.log(data);
+		                  // location.reload(true);
+		                });
+			  console.log('Successful login for: ' + response.name);
+		  	  //create object
+		      primero['name']=response.name;
+		      console.log('guardé nombre en json');
+			});
+
+		}
+
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '431901777204843', // App ID
+	      channelUrl : 'http://cadenitaandrea.pythonanywhere.com/channel.html', // Channel File
+	      status     : true, // check login status
+	      cookie     : true, // enable cookies to allow the server to access the session
+	      xfbml      : true  // parse XFBML
+	    });
+		// Additional init code here
+        {% if user %}
+         FB.getLoginStatus(function(response) {
+           if (response.status === 'connected') {
+             //user logged in and connected to facebook
+             console.log('user logged in and connected to facebook');
+             // fblogin();
+           } else if (response.status === 'not_authorized') {
+             //user logged in but app not_authorized on facebook
+             console.log('user logged in but app not_authorized on facebook');
+             // $("#user_no_facebook_auth_modal").modal('show');
+           } else {
+             //user logged in but app not_logged_in to facebook
+             console.log('user logged in but app not_logged_in to facebook');
+             // $("#user_no_facebook_login_modal").modal('show');
+           }
+          });
+        {% else %}
+        FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+            // connected
+            console.log('connected');
+            // $("#no_user_facebook_modal").modal('show');
+            // get_user();
+          } else if (response.status === 'not_authorized') {
+            // not_authorized
+            console.log('not authorized');
+            // $("#login-modal").modal('show');
+          } else {
+            // not_logged_in
+            console.log('not logged in');
+            // $("#login-modal").modal('show');
+          }
+         });
+      	{% endif %}
+	  };
+
+	  // Load the SDK Asynchronously
+	  (function(d){
+	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement('script'); js.id = id; js.async = true;
+	     js.src = "//connect.facebook.net/en_US/all.js";
+	     ref.parentNode.insertBefore(js, ref);
+	   }(document));
+	</script>
+
+	<script type="text/javascript" src="../static/app.js"></script>
+
 </body>
 </html>
 

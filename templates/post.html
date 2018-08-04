@@ -30,39 +30,28 @@
 			$('#fullpage').fullpage();
 		});
 
-		window.twttr = (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0],
-            t = window.twttr || {};
-          if (d.getElementById(id)) return t;
-          js = d.createElement(s);
-          js.id = id;
-          js.src = "https://platform.twitter.com/widgets.js";
-          fjs.parentNode.insertBefore(js, fjs);
-
-          t._e = [];
-          t.ready = function(f) {
-            t._e.push(f);
-          };
-
-          return t;
-        }(document, "script", "twitter-wjs"));
 	</script>
+	<script type=text/javascript>
+	    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+	    console.log($SCRIPT_ROOT)
+	  </script>
 </head>
 <body>
+    <div id="fb-root"></div>
 	<div id="fullpage">
 		<div class="section" id="primero">
 			<div class="content">
 				<div class="inter">
 					<img src="{{url_for('static', filename='primertuit.png') }}" alt="¿Recuerdas tu primer tuit?">
 					<div class="primertuit">
-						<h3>{{ data.tweet_text }}</h3>
-						<h4>@{{ username.screen_name }}</h4>
+						<h3><a href="{{ mensaje.link }}" target="_blank">{{ mensaje.message }}</a></h3>
+						<h4>{{ mensaje.name }}</h4>
 					</div>
 					<p>Para ti fue difícil recordar <strong>tu primer posteo.</strong><br/>
 					Hay pacientes con <strong>Alzheimer</strong> que no recuerdan su nombre.</p>
-					<!--<a class="share-tw" href="https://twitter.com/share?text={{ data.tweet_text }}&url=http://aneacolacao.pythonanywhere.com/"><button><i class="fa fa-twitter"></i> COMPARTE</button></a>-->
+					<!--<a class="share-tw" href="https://twitter.com/share?text={{ mensaje.message }}&url=http://aneacolacao.pythonanywhere.com/"><button><i class="fa fa-twitter"></i> COMPARTE</button></a>-->
 
-                    <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Faneacolacao.pythonanywhere.com&text={{ data.tweet_text }}" class="share-tw" title="Twittear"><button><i class="fa fa-twitter"></i> COMPARTE</button></a>
+                    <a href="#" class="share-fb" title="Twittear"><button><i class="fa fa-facebook"></i> COMPARTE</button></a>
 
 				</div>
 				<div class="scroll">scroll down<br/><img src="{{url_for('static', filename='scroll.png') }}" alt="Scroll down" class="arrow"></div>
@@ -82,5 +71,6 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="../static/app.js"></script>
 </body>
 </html>
