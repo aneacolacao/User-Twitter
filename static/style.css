@@ -46,6 +46,7 @@ body{
 	flex-direction: column;
 	height: 100%;
 	text-align: center;
+	padding: 10px;
 }
 
 h1{
@@ -56,7 +57,7 @@ h1{
 
 #recuerdas, #primero{
 /*	display: flex;*/
-	background-color: #29b7b4;
+	background-color: #2db9e7;
 	text-align: center;
 	color: #f2eee3;
 }
@@ -70,19 +71,28 @@ h1{
 	width: 180px;
 	margin: 0 auto;
 }
+
+#recuerdas h1{
+    margin-top: ;
+}
+
+.line_break{
+    display: none;
+}
+
 #recuerdas .scroll, #primero .scroll{
 	color: #f2eee3;
 	font-weight: 100;
 	align-self: center;
 	justify-content: center;
-	padding-bottom: 20px;
+	/*padding-bottom: 10px;*/
 
 }
 #recuerdas img.arrow, #primero img.arrow{
 	width: 70px;
 }
 #ingresa, #fundacion{
-	background-color: #f2eee3;
+	background-color: #ffffff;
 	color: #898174;
 }
 #ingresa img{
@@ -116,7 +126,7 @@ h1{
 	font-family: 'HelveticaNeueCond';
 	font-weight: 100;
 	font-size: 27px;
-	letter-spacing: 2px;
+	/*letter-spacing: 2px;*/
 }
 #ingresa strong, #primero strong, #fundacion strong{
 	font-weight: 400;
@@ -206,5 +216,45 @@ h1{
 }
 #fundacion a{
 	margin: 0 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    h1{
+        font-size: 40px;
+    }
+    #recuerdas img{
+        width: 250px;
+    }
+    .line_break{
+        display: block;
+    }
+    #recuerdas h1{
+        /*margin: 30px auto 10px;*/
+        line-height: 1;
+    }
+    #ingresa h2{
+        margin: 15px;
+        font-size: 30px;
+    }
+    .little-tuit {
+        font-size: 20px;
+    }
+    #ingresa p{
+        font-size: 17px;
+        letter-spacing: inherit;
+    }
+    #ingresa img{
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
+@media only screen and (max-device-width: 500px) and (orientation: portrait){
+    #ingresa .inter{
+        flex-direction: column;
+    }
+
+
 }
 

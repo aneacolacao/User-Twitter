@@ -2,18 +2,20 @@
 <html lang="es">
 <head>
 	<title>Prueba Jquery</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='favicon.png') }}"/>
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="Mi primer posteo" />
 	<meta name="twitter:description" content="Yo recordé mi primer posteo, ¿te gustaría recordar el tuyo?" />
-
 	<meta name="twitter:image" content="http://aneacolacao.pythonanywhere.com/static/summary-card.jpg" />
-
 	<meta name="twitter:image" content="http://aneacolacao.pythonanywhere.com/static/ciguena.png" />
 
-
+    <link rel="stylesheet" type="text/css" href="../static/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="../static/jquery.fullPage.css" />
+	<!--<link rel="stylesheet" type="text/css" href="../static/bootstrap.min.css" />-->
 	<link rel="stylesheet" type="text/css" href="../static/style.css" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -36,7 +38,10 @@
 		//   });
 		// });
         $(document).ready(function() {
-			$('#fullpage').fullpage();
+			$('#fullpage').fullpage({
+			    responsiveWidth: 768,
+			    responsiveHeight: 500
+			});
 		});
 	</script>
 	<script type=text/javascript>
@@ -50,23 +55,24 @@
 		<div class="section" id="recuerdas">
 			<div class="content">
 				<div class="inter">
-					<img src="{{url_for('static', filename='ciguena.png') }}" alt="¿Recuerdas tu primer tuit?">
-					<h1>¿RECUERDAS TU PRIMER POSTEO?</h1>
+					<img src="{{url_for('static', filename='ciguena.gif') }}" alt="¿Recuerdas tu primer post?">
+					<h1>¿RECUERDAS <br/ class="line_break">TU PRIMER <br/ class="line_break">POSTEO?</h1>
+
 
 				</div>
-				<div class="scroll">scroll down<br/><img src="{{url_for('static', filename='scroll.png') }}" alt="Scroll down" class="arrow"></div>
+				<div class="scroll"><img src="{{url_for('static', filename='scroll.png') }}" alt="Scroll down" class="arrow"></div>
 
 			</div>
 		</div>
 		<div class="section" id="ingresa">
 			<div class="content">
 				<div class="inter">
-					<img src="{{url_for('static', filename='miprimertuit.png') }}" alt="¿Recuerdas tu primer tuit?">
+					<img src="{{url_for('static', filename='miprimertuit.gif') }}" alt="¿Recuerdas tu primer tuit?">
 					<h2><span class="regular">mi</span><span class="strong-tuit">primer</span>posteo.<span class="little-tuit">com</span></h2>
 				</div>
-				<p>Te preguntarás cómo algo que tú escribiste,<br/>no puedes recordarlo.</p>
+				<p>Te preguntarás cómo algo que tú escribiste, <strong>no puedes recordarlo.</strong></p>
 				<p>Algo tan simple como <strong>tu primer posteo.</strong></p>
-				<p>Pensamos que te interesaría leerlo de nuevo.</p>
+				<p>Pensamos que te interesaría <strong>leerlo de nuevo.</strong></p>
 				<a href="#" onclick="fblogin(); return false;"><button class="log-fb"><i class="fa fa-facebook"></i> FACEBOOK</button></a><br/>
 				<a href="{{url_for('login') }}"><button class="log-tw"><i class="fa fa-twitter"></i>TWITTER</button></a>
 			</div>
