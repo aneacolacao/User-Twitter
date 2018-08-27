@@ -35,7 +35,7 @@ app.config.update(
 
 CONSUMER_TOKEN='p8ZtSYnB74NRAMPmis8qBk71l'
 CONSUMER_SECRET='yEQaGmRFWmpoRlmsQTfcUVKzC1FHsry613xV4Bb8exshf36wPr'
-CALLBACK_URL = 'http://aneacolacao.pythonanywhere.com/verify'
+CALLBACK_URL = 'https://www.miprimerpost.com/verify'
 
 db = SQLAlchemy(app)
 session_t = dict()
@@ -58,7 +58,7 @@ class Users(db.Model):
 #     with open(filename, 'wb') as output:
 #       pickle.dump(obj, output, pickle.HIGHEST_PROTOCOL)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
 	return render_template('interactive.html')
 
@@ -70,12 +70,12 @@ def login():
 		redirect_url= auth.get_authorization_url(signin_with_twitter=True)
 		print(redirect_url)
 		session_t['request_token'] = auth.request_token
-		print 'se guardo en la sesion'
+		print ('se guardo en la sesion')
 		if 'request_token' in session_t:
 		    user = session_t['request_token']
-		    print user
+		    print (user)
 	except tweepy.TweepError:
-		print 'Error! Failed to get request token'
+		print ('Error! Failed to get request token')
 
 	#this is twitter's url for authentication
 	# session['request_token'] = auth.request_token
@@ -86,7 +86,7 @@ def get_verification():
 
 	#get the verifier key from the request url
 	verifier= request.args['oauth_verifier']
-	print verifier
+	print (verifier)
 	auth = OAuthHandler(CONSUMER_TOKEN, CONSUMER_SECRET)
 
 	auth.request_token = {'oauth_token': request.args.get('oauth_token') ,'oauth_token_secret': request.args.get('oauth_verifier') }
@@ -99,13 +99,12 @@ def get_verification():
 
 	try:
 		    auth.get_access_token(verifier)
-		    print 'obtuve el access token'
-		    print auth.access_token
-		    print 'obtuve el acces token secret'
-		    print auth.access_token_secret
-		    print 'termine'
+		    print ('obtuve el access token')
+		    print (auth.access_token)
+		    print (auth.access_token_secret)
+		    print ('termine')
 	except tweepy.TweepError:
-		    print 'Error! Failed to get access token.'
+		    print ('Error! Failed to get access token.')
 
 	#now you have access!
 	api = tweepy.API(auth)
@@ -114,7 +113,7 @@ def get_verification():
 	bdd['api'] = api
 	bdd['access_token_key'] = auth.access_token
 	bdd['access_token_secret']=auth.access_token_secret
-	print bdd
+	print (bdd)
 	return flask.redirect(flask.url_for('start'))
 
 @app.route("/start")
@@ -124,12 +123,12 @@ def start():
 	api = bdd['api']
 
 	def process_or_store(tuit):
-		print json.dumps(tuit)
+		print (json.dumps(tuit))
 
 	# Variable usuario
 	user_obj = api.me()
 	usuario = user_obj.screen_name
-	print usuario
+	print (usuario)
 
 	# Variable fecha creacion de usuario
 	inicio = user_obj.created_at
@@ -157,7 +156,7 @@ def start():
 			# print last_tweet.id
 			# print last_tweet.date
 			# print 'hay tweet'
-			print tuit
+			print (tuit)
 			tweet = True
 		except IndexError:
 			strInicio = until
@@ -173,7 +172,7 @@ def start():
 		get_tweets(strInicio,strEnd, usuario)
 		break
 
-	print 'abrio start'
+	print ('abrio start')
 	#example, print your latest status posts
 	return render_template('tweets.html',
 									username = api.me(),
@@ -248,10 +247,13 @@ def post_post():
 
 @app.route('/post', methods=['GET'])
 def post_get():
-  user_msj = session['mensaje']
-  print('aqui viene el mensaje del usuario')
-  print(user_msj)
-  return render_template('post.html', mensaje=user_msj)
+  print('esta cargando post')
+  if session:
+      user_msj = session['mensaje']
+      print(user_msj)
+      return render_template('post.html', mensaje=user_msj)
+  else:
+      return flask.redirect(flask.url_for('index'))
 
 if __name__ == "__main__":
 	app.run()

@@ -1,41 +1,13 @@
 @font-face{
-font-family: 'HelveticaNeueCond';
-src: url('/static/fonts/HelveticaNeue-BlackCond.ttf');
-font-weight: 900;
-}
-@font-face{
-font-family: 'HelveticaNeueCond';
-src: url('/static/fonts/HelveticaNeue-BoldCond.ttf');
-font-weight: 700;
-}
-@font-face{
-font-family: 'HelveticaNeueCond';
-src: url('/static/fonts/HelveticaNeue-MediumCond.ttf');
-font-weight: 400;
-}
-@font-face{
-font-family: 'HelveticaNeue';
-src: url('/static/fonts/HelveticaNeue-Regular.ttf');
-font-weight: 400;
-}
-@font-face{
-font-family: 'HelveticaNeueCond';
-src: url('/static/fonts/HelveticaNeue-ThinCond.ttf');
-font-weight: 300;
-}
-@font-face{
-font-family: 'HelveticaNeueCond';
-src: url('/static/fonts/HelveticaNeue-UltraLigCond.ttf');
-font-weight: 100;
-}
-@font-face{
 font-family: 'HelveticaNeue';
 src: url('/static/fonts/HelveticaNeue-Thin.ttf');
 font-weight: 300;
 }
 
+/*@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700');*/
+
 body{
-	font-family: 'HelveticaNeueCond';
+	font-family: 'Oswald', sans-serif;
 	letter-spacing: 1px;
 }
 
@@ -50,7 +22,7 @@ body{
 }
 
 h1{
-	font-family: 'HelveticaNeueCond';
+	font-family: 'Oswald', sans-serif;
 	font-size: 60px;
 	font-weight: 700;
 }
@@ -102,7 +74,7 @@ h1{
 }
 #ingresa h2, #fundacion h2{
 	font-size: 65px;
-	font-family: 'HelveticaNeueCond';
+	font-family: 'Oswald', sans-serif;
 	font-weight: 300;
 	letter-spacing: 2px;
 }
@@ -111,7 +83,7 @@ h1{
 	font-weight: 300;
 }
 .strong-tuit{
-	font-family: 'HelveticaNeueCond';
+	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
 }
 .little-tuit{
@@ -123,7 +95,7 @@ h1{
 	align-items: center;
 }
 #ingresa p, #primero p, #fundacion p{
-	font-family: 'HelveticaNeueCond';
+	font-family: 'Oswald', sans-serif;
 	font-weight: 100;
 	font-size: 27px;
 	/*letter-spacing: 2px;*/
@@ -131,13 +103,13 @@ h1{
 #ingresa strong, #primero strong, #fundacion strong{
 	font-weight: 400;
 }
-#ingresa button, #fundacion button, #primero button{
-	background-color: #dcd5b8;
+#ingresa button{
+    background-color: #2db9e7;
     border: none;
     padding: 10px 0 8px;
     border-radius: 10px;
     width: 160px;
-    font-family: 'HelveticaNeueCond';
+    font-family: 'Oswald', sans-serif;
     font-weight: 300;
     font-size: 20px;
     color: #605951;
@@ -182,13 +154,48 @@ h1{
 	margin-right: 5px;
 }
 
+
+#primero #cloud{
+    background-image: url("/static/Globito.png");
+    background-size: 100% 100%;
+    height: auto;
+    min-height: 200px;
+    /*max-height: 400px;*/
+    width: auto;
+    min-width: 400px;
+    align-self: center;
+    padding: 20px;
+    position: relative;
+    background-color: #fff;
+    border-radius: 40px;
+    margin-bottom: 30px;
+}
+
+#primero #cloud:after{
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 20%;
+	width: 0;
+	/*height: 0;*/
+	border: 26px solid transparent;
+	border-top-color: #fff;
+	border-bottom: 0;
+	border-left: 0;
+	/*margin-left: -9.5px;*/
+	margin-bottom: -25px;
+}
+
 #primero img{
-	width: 160px;
-	margin: 0 auto 2%;
+	width: 100px;
+	margin-right: 20px;
 }
 
 #primero .primertuit{
 	margin-bottom: 2%;
+	display: flex;
+	align-self: center;
+	align-items: center;
 }
 
 #primero p{
@@ -197,26 +204,67 @@ h1{
 
 #primero h3{
 	font-weight: 100;
-	font-size: 60px;
+	font-size: 40px;
 	margin: 10px 0;
+	text-align: left;
 }
 
 #primero h3 a{
-    color: #f2eee3;
+    color: #000000;
     text-decoration: none;
+}
+
+#primero .footer-cloud{
+    color: #000;
+    font-weight: 100;
+    letter-spacing: 0px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+}
+
+#primero .footer-cloud span{
+    font-weight: 400;
 }
 
 #primero h4{
 	font-weight: 100;
-	font-size: 50px;
+	font-size: 30px;
 	margin: 0;
 }
-#fundacion h2{
-	font-weight: 100;
+#fundacion img{
+    width: 400px;
+    align-self:center;
 }
+#fundacion p{
+    margin: 50px 0;
+}
+
+#fundacion .buttons{
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+}
+
 #fundacion a{
 	margin: 0 10px;
 }
+#fundacion button{
+    background-color: #2db9e7;
+    border: none;
+    padding: 0px 20px 0px;
+    border-radius: 15px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
 
 @media only screen and (max-width: 768px) {
     h1{
@@ -249,12 +297,22 @@ h1{
     }
 
 }
+@media only screen and (max-device-width: 500px){
+    #primero #cloud{
+        width: 80%;
+        min-width: 80%;
+    }
+    #primero .primertuit{
+        flex-direction: column;
+    }
+
+    #fundacion img{
+        width: 80%;
+    }
+}
 
 @media only screen and (max-device-width: 500px) and (orientation: portrait){
     #ingresa .inter{
         flex-direction: column;
     }
-
-
 }
-
