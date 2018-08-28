@@ -33,9 +33,9 @@ app.config.update(
   SQLALCHEMY_TRACK_MODIFICATIONS = True
   )
 
-CONSUMER_TOKEN='p8ZtSYnB74NRAMPmis8qBk71l'
-CONSUMER_SECRET='yEQaGmRFWmpoRlmsQTfcUVKzC1FHsry613xV4Bb8exshf36wPr'
-CALLBACK_URL = 'https://www.miprimerpost.com/verify'
+CONSUMER_TOKEN='p2AGB5aeopTa48c5jV08D3Z3a'
+CONSUMER_SECRET='vSWu0u3o8uMSfr6psXI41zy3BZwen0OjoLiRhLY2dkg1C4x7zq'
+CALLBACK_URL = 'https://www.miprimerposteo.com/verify'
 
 db = SQLAlchemy(app)
 session_t = dict()
