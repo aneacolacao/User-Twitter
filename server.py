@@ -92,7 +92,8 @@ def get_verification():
 	auth.request_token = {'oauth_token': request.args.get('oauth_token') ,'oauth_token_secret': request.args.get('oauth_verifier') }
 
 	# token = session['request_token']
-	del session_t ['request_token']
+	if 'request_token' in session_t:
+	    del session_t ['request_token']
 
 	# auth.set_request_token(token[0], token[1])
 

@@ -7,7 +7,7 @@
     <meta name="description" content="Mi Primer Posteo es una iniciativa que busca crear conciencia acerca de una terrible enfermedad que ataca la memoria, el Alzheimer.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='favicon.png') }}"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet">
 
@@ -21,9 +21,8 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="Mi primer posteo" />
 	<meta name="twitter:description" content="Yo recordé mi primer posteo, ¿te gustaría recordar el tuyo?" />
-	<meta name="twitter:image" content="http://www.miprimerposteo.com/static/summary-card.jpg" />
-	<meta name="twitter:image" content="http://www.miprimerposteo.com/static/ciguena.png" />
-
+	<meta name="twitter:image" content="https://www.miprimerposteo.com/static/summary-card.jpg" />
+	<meta name="twitter:image" content="https://www.miprimerposteo.com/static/ciguena.png" />
 
 	<link rel="stylesheet" type="text/css" href="../static/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="../static/style.css" />
@@ -73,15 +72,11 @@
 				    </div>
 
 					<div class="primertuit">
-					    <img src="{{url_for('static', filename='ciguena.gif') }}" alt="MiPrimerPost">
+					    <img src="{{url_for('static', filename='ciguena.gif') }}" alt="MiPrimerPosteo">
 						<h4>{{ mensaje.name }}</h4>
 					</div>
 					<p>Para ti fue fácil recordar <strong>tu primer posteo.</strong><br/>
 					Hay pacientes con <strong>Alzheimer</strong> que no recuerdan su nombre.</p>
-					<a class="share-tw" href="https://twitter.com/share?text={{ mensaje.message }} <-- Este fue Mi Primer Posteo, ¿te gustaría recordar el tuyo? Entra aquí --> &url=http://www.miprimerposteo.com/"><button><i class="fa fa-twitter"></i> COMPARTE</button></a>
-                    <div class="fb-share-button" data-href="{{ mensaje.link }}" data-layout="button" data-size="large" data-mobile-iframe="true" onClick="image()"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ mensaje.link}}&amp;t='Este fue mi primer posteo'&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
-
-
 				</div>
 				<div class="scroll"><img src="{{url_for('static', filename='scroll.png') }}" alt="Scroll down" class="arrow"></div>
 
@@ -94,7 +89,8 @@
 				desarrollamos programas de investigación, apoyo y servicios esenciales<br/>
 				que ayudan a nuestros pacientes y sus familias a mejorar su calidad de vida.</p>
 				<div class="buttons">
-					Si no te es posible <a href="#"><br class="line_break"/><button>DONAR</button></a> <a href="#" class="share-fb" title="Compartir"><button><i class="fa fa-facebook"></i> COMPARTIR</button></a> <br class="line_break">también es una forma de ayudar.
+                        <!-- <div class="fb-share-button" data-href="{{ mensaje.link }}" data-layout="button" data-size="large" data-mobile-iframe="true" onClick="image()"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ mensaje.link}}&amp;t='Este fue mi primer posteo'&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div> -->
+					Si no te es posible <a href="#"><br class="line_break"/><button>DONAR</button></a> <a href="https://www.facebook.com/sharer/sharer.php?u={{ mensaje.link}}&amp;t='Este fue mi primer posteo'&amp;src=sdkpreparse" target="_blank" class="fb-xfbml-parse-ignore share-fb" title="Compartir"><button><i class="fa fa-facebook"></i> COMPARTIR</button></a> <br class="line_break">también es una forma de ayudar.
 				</div>
 			</div>
 		</div>
