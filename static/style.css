@@ -134,12 +134,12 @@ h1{
     z-index: 999;
   right: 0;
   left: 0;
-  top: 30vh;
+  top: 25vh;
   display: none;
 }
 
 .cube1, .cube2 {
-  background-color: #2db9e7;
+  background-color: #66FF00;
   width: 25px;
   height: 25px;
   position: absolute;
